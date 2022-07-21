@@ -7,6 +7,7 @@ function CharSpec() {
   const stateLoaded = !!Object.keys(charInfo).length;
   let params = useParams();
   
+  //get thspecified characters information
   useEffect(() => {
     fetch(`/characters/${params.id}`)
     .then((r) => r.json())
@@ -37,7 +38,7 @@ function CharSpec() {
       return "https://img.itch.zone/aW1hZ2UvOTIzMjcxLzUyNzk2NzkuZ2lm/original/vg7s0I.gif"; //This is Thief Image
     }
   }
-  
+  // Creates weapon or armor for character and creates JSX with dynamic info
   function renderGearSpecs(type) {
     const gear = charInfo.equipment.filter((e) => {
       return e.item_type.includes(type);
